@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  .buttons #button {
+    display: block;
+    margin-bottom: 10px;
+    background-color: #f4f4ff;
+    color: black;
+    width: fit-content;
+    border: 3px solid black;
+    border-radius: 5px;
+  }
+  .buttons #button2 {
+    background-color: aliceblue;
+  }
+    .user {
+        display: flex;
+        padding: 10px;
+        margin-bottom: 30px;
+        background-color: aliceblue;
+        width: 50%;
+    }
+    .user li {
+        list-style: none;
+    }
+</style>
+<body>
+    <div class="buttons">
+    <button id="button">Get GitHub Users</button>
+    <button id = button2>Hide Users</button>
+</div>
+ 
+    <h2>GitHub Users</h2>
+    <div id="users"></div>
+
+    <script>
+        document.getElementById('button2').addEventListener('click' , HideGitHubUsers) ; 
+        function HideGitHubUsers() {
+            document.getElementById('users').style.display = "none" ;
+        }
+        document.getElementById('button').addEventListener('click' , LoadGitHubUsers) ; 
+        function LoadGitHubUsers() {
+            document.getElementById('users').style.display = "block" ; 
+            var xhr = new XMLHttpRequest() ; 
+            xhr.open("GET" , "https://api.github.com/users" , true) ;  
+            xhr.onload = function () {
+                if (this.status === 200) {
+                    var users = JSON.parse(this.responseText) ; 
+                    var output = '' ; 
+                    for (var i in users) {
+                        output += 
+                        '<div class = "user">' +
+                            '<img src="'+users[i].avatar_url+'" width="70" height="70">'+
+                        '<ul>' + 
+                            '<li>'+users[i].id + '</li>' +
+                            '<li>'+users[i].login + '</li>' +
+                            '</ul>' +
+                            '</div>'
+                    }
+                    document.getElementById('users').innerHTML = output ; 
+
+                }
+            }
+            xhr.send() ; 
+        }
+    </script>
+</body>
+</html>

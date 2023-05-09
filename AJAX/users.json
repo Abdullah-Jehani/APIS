@@ -1,0 +1,22 @@
+[
+    {
+        "Name" : "Abdullah" ,
+        "Age" : 21 , 
+        "Email" : "Abdallahaljehani926@gmail.com"
+    } ,
+    {
+        "Name" : "Osama" ,
+        "Age" : 40 , 
+        "Email" : "osama90@gmail.com"
+    },
+    {
+        "Name" : "Ali" ,
+        "Age" : 21 , 
+        "Email" : "Ali99800@gmail.com"
+    } , 
+    {
+        "Name" : "KhALID" ,
+        "Age" : 54 , 
+        "Email" : "Khalid.hed@gmail.com"
+    }
+]

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Names Of Compatetors So Far !</h2>
+   <ul id = 'People'></ul>
+    <footer>
+        
+    </footer>
+    <script>
+//         let people =  [
+//         {
+//                 name : "Abdullah"  , 
+//                 Age : 21 , 
+//                 Nationality : "Libyan" , 
+//                  getage : function (currentyear , dateofbirth) {
+//                     return currentyear - dateofbirth
+//                 }
+//         },
+
+//          {
+//    name : "Osama"  , 
+//                 Age : 23 , 
+//                 Nationality : "Egyprian" , 
+//                  getage : function (currentyear , dateofbirth) {
+//                     return currentyear - dateofbirth
+//                 }
+//         } ,
+//         {
+//    name : "Ahmed"  , 
+//                 Age : 19 , 
+//                 Nationality : "Tunisian" , 
+//                  getage : function (currentyear , dateofbirth) {
+//                     return currentyear - dateofbirth
+//                 }
+//         } ,
+//         {
+//    name : "Khalid"  , 
+//                 Age : 20 , 
+//                 Nationality : "Libyan" , 
+//                  getage : function (currentyear , dateofbirth) {
+//                     return currentyear - dateofbirth
+//                 }
+//         } ,
+//         {
+//    name : "Rabea"  , 
+//                 Age : 21 , 
+//                 Nationality : "pakisni" , 
+//                  getage : function (currentyear , dateofbirth) {
+//                     return currentyear - dateofbirth
+//                 }
+//         }
+//         ] 
+//         let output = '' ; 
+//         for (let i = 0 ; i< people.length ; i++) {
+//             output = output + `<p> ${people[i].name} </p>` ; 
+//         }
+//         document.body.innerHTML = output ; 
+        // console.log(people) ; 
+        // console.log(people[0]) ;
+        var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+      var response = JSON.parse(xhttp.responseText) ; 
+      var people = response.people ; 
+      let insider = '' ;
+      for (let i = 0 ; i< people.length ; i++) {
+          insider += `<li>${people[i].Name}</li>`
+      }
+      var a = document.getElementById('People').innerHTML = insider ; 
+    }
+
+    };
+    xhttp.open("GET", "file.json", true);
+    xhttp.send();
+</script>
+</body>
+</html>

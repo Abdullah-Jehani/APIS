@@ -1,0 +1,24 @@
+{
+    "people": [
+      {
+        "Name" : "Abdullah" , 
+        "Age" : 21
+      } ,
+      {
+        "Name" : "Osama" , 
+        "Age" : 20
+      } , 
+      {
+        "Name" : "Sofyan" , 
+        "Age" : 22
+      } , 
+      {
+        "Name" : "Ali" , 
+        "Age" : 22
+      } , 
+      {
+        "Name" : "Khalid" , 
+        "Age" : 22
+      }
+    ]
+}
